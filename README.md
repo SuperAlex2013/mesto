@@ -16,3 +16,6 @@ this project is about places that appear somewhere somehow
 **Картинки**
 
 * there were no images that would fit my vision so there aro no images at all, but still optimized, kinda
+
+### pages
+[click click click](https://superalex2013.github.io/mesto/)
