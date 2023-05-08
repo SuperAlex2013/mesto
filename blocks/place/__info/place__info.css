@@ -1,0 +1,9 @@
+.place__info {
+  margin: 0;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 0 0 10px 10px;
+}

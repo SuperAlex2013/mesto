@@ -1,0 +1,19 @@
+.place__like {
+  margin: 0;
+  padding: 0;
+  min-width: 22px;
+  min-height: 19px;
+  border: none;
+  background: transparent url('../../../images/icon/like.svg') no-repeat center;
+  transition: all 0.1s ease-in-out;
+}
+
+.place__like:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+
+.place__like:active {
+  background-image: url('../../../images/icon/like_active.svg');
+}
