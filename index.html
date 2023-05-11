@@ -16,56 +16,63 @@
           <img class="profile__image" src="./images/photo.jpg" alt="аватарка">
           <div class="profile__data">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__edit" aria-label="Редактировать" type="button"></button>
+            <button class="profile__edit" aria-label="Редактировать"
+              type="button"></button>
             <p class="profile__info">Исследователь океана</p>
           </div>
-          <button class="profile__new-place" aria-label="добавить место" type="button"></button>
+          <button class="profile__new-place" aria-label="добавить место"
+            type="button"></button>
         </section>
-        <ul class="places">
-          <li class="place">
-            <img class="place__img" src="./images/places/maxresdefault.jpg" alt="Карачаевск">
-            <div class="place__info">
-              <h2 class="place__name">Карачаевск</h2>
-              <button class="place__like" aria-label="like" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img class="place__img" src="./images/places/2.jpg" alt="Галактика">
-            <div class="place__info">
-              <h2 class="place__name">Галактика</h2>
-              <button class="place__like" aria-label="like" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img class="place__img" src="./images/places/3.jpg" alt="Млечный путь">
-            <div class="place__info">
-              <h2 class="place__name">Млечный путь</h2>
-              <button class="place__like" aria-label="like" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img class="place__img" src="./images/places/4.jpg" alt="Луна">
-            <div class="place__info">
-              <h2 class="place__name">Луна</h2>
-              <button class="place__like" aria-label="like" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img class="place__img" src="./images/places/5.jpg" alt="Сатурн">
-            <div class="place__info">
-              <h2 class="place__name">Сатурн</h2>
-              <button class="place__like" aria-label="like" type="button"></button>
-            </div>
-          </li>
-          <li class="place">
-            <img class="place__img" src="./images/places/6.jpg" alt="Венера">
-            <div class="place__info">
-              <h2 class="place__name">Венера - спутник самой себя</h2>
-              <button class="place__like" aria-label="like" type="button"></button>
-            </div>
-          </li>
+        <section>
+          <ul class="places">
+            <li class="place">
+              <img class="place__img" src="./images/places/maxresdefault.jpg"
+                alt="Карачаевск">
+              <div class="place__info">
+                <h2 class="place__name">Карачаевск</h2>
+                <button class="place__like" aria-label="лайк" type="button"></button>
+              </div>
+            </li>
+            <li class="place">
+              <img class="place__img" src="./images/places/2.jpg"
+                alt="Галактика">
+              <div class="place__info">
+                <h2 class="place__name">Галактика</h2>
+                <button class="place__like" aria-label="лайк" type="button"></button>
+              </div>
+            </li>
+            <li class="place">
+              <img class="place__img" src="./images/places/3.jpg" alt="Млечный
+                путь">
+              <div class="place__info">
+                <h2 class="place__name">Млечный путь</h2>
+                <button class="place__like" aria-label="лайк" type="button"></button>
+              </div>
+            </li>
+            <li class="place">
+              <img class="place__img" src="./images/places/4.jpg" alt="Луна">
+              <div class="place__info">
+                <h2 class="place__name">Луна</h2>
+                <button class="place__like" aria-label="лайк" type="button"></button>
+              </div>
+            </li>
+            <li class="place">
+              <img class="place__img" src="./images/places/5.jpg" alt="Сатурн">
+              <div class="place__info">
+                <h2 class="place__name">Сатурн</h2>
+                <button class="place__like" aria-label="лайк" type="button"></button>
+              </div>
+            </li>
+            <li class="place">
+              <img class="place__img" src="./images/places/6.jpg" alt="Венера">
+              <div class="place__info">
+                <h2 class="place__name">Венера - спутник самой себя</h2>
+                <button class="place__like" aria-label="лайк" type="button"></button>
+              </div>
+            </li>
 
-        </ul>
+          </ul>
+        </section>
       </main>
       <footer class="footer">
         <p class="footer__info">© 2023 Mesto Russia</p>
@@ -73,14 +80,16 @@
     </div>
     <div class="popup">
       <div class="popup__container">
-        <button class="popup__close" aria-label="Закрыть окно"></button>
+        <button class="popup__close" aria-label="Закрыть окно" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" name="info">
           <label>
-            <input class="popup__input popup__input_name" name="name"  required placeholder="Имя" value="Жак-Ив Кусто">
+            <input class="popup__input popup__input_type_name" name="name"
+              required placeholder="Имя" value="Жак-Ив Кусто">
           </label>
           <label>
-            <input class="popup__input popup__input_info" name="info" required placeholder="Описание" value="Исследователь океана">
+            <input class="popup__input popup__input_type_info" name="info"
+              required placeholder="Описание" value="Исследователь океана">
           </label>
           <button class="popup__submit" aria-label="сохранить" type="submit">Сохранить</button>
         </form>

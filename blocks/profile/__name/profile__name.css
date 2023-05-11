@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
 
-  max-width: 294px;
+  max-width: 350px;
   font-size: 42px;
   line-height: 48px;
   font-weight: 500;
@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 929px) {
   .profile__name {
-    max-width: 205px;
+    max-width: 235px;
     font-size: 29px;
     line-height: 36px;
   }
@@ -22,7 +22,7 @@
 
 @media screen and (max-width: 644px) {
   .profile__name {
-    max-width: 189px;
+    max-width: 220px;
     font-size: 27px;
     line-height: 33px;
     text-align: center;
