@@ -19,6 +19,13 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
+const closeButtons = document.querySelectorAll('.popup__close');
+
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});
+
 //--//-- PROFILE EDIT POPUP //--//--//--//--//--//--//--//--//--//--//--//--//--//--
 
 const editProfile = document.querySelector(".profile__edit");
@@ -54,21 +61,17 @@ const submitForm = (evt) => {
 }
 
 editProfile.addEventListener("click", toggleProfile);
-popupCloseIcon.addEventListener("click", toggleProfile);
+
 popupEditProfile.addEventListener("submit", submitForm);
 
 
 //-//-- PICTURE ZOOM //--//--//--//--//--//--//--//--//--
 
-const popupImg = document.querySelector('.popup_img-card'),
-  closeZoom = popupImg.querySelector('.popup__close')
+const popupImg = document.querySelector('.popup_img-card');
 
 const zoomImg = popupImg.querySelector('.popup__zoom-image'),
-  zoomTitle = popupImg.querySelector('.popup__zoom-title')
+  zoomTitle = popupImg.querySelector('.popup__zoom-title');
 
-closeZoom.addEventListener('click', (evt) => {
-  closePopup(popupImg)
-})
 
 function openZoom(evt) {
 
@@ -128,19 +131,18 @@ initialCards.forEach((data) => { placeCard(data) })
 const formCardEdit = sectionProfile.querySelector('.profile__new-place'),
 
   placeAdd = document.querySelector('.popup_new-place'),
-  placeClose = placeAdd.querySelector('.popup__close'),
   placeForm = placeAdd.querySelector('.popup__form_new'),
   placeInputPlace = placeAdd.querySelector('.popup__input_type_place'),
   placeInputSrc = placeAdd.querySelector('.popup__input_type_src');
 
 const submitCardForm = (evt) => {
   evt.preventDefault();
-  renderCard({ name: placeInputPlace.value, link: placeInputSrc.value })
+  placeCard({ name: placeInputPlace.value, link: placeInputSrc.value })
   closePopup(placeAdd)
   evt.target.reset();
 }
 
 placeForm.addEventListener('submit', submitCardForm);
 formCardEdit.addEventListener('click', () => openPopup(placeAdd));
-placeClose.addEventListener('click', () => closePopup(placeAdd));
+
 
