@@ -1,5 +1,6 @@
 .place {
   max-width: 282px;
+  position: relative;
   padding: 0;
   list-style-type: none;
 }

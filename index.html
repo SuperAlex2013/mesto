@@ -22,65 +22,25 @@
             </div>
             <p class="profile__info">Исследователь океана</p>
           </div>
-          
+
           <button class="profile__new-place" aria-label="добавить место"
             type="button"></button>
         </section>
         <section>
-          <ul class="places">
-            <li class="place">
-              <img class="place__img" src="./images/places/maxresdefault.jpg"
-                alt="Карачаевск">
-              <div class="place__info">
-                <h2 class="place__name">Карачаевск</h2>
-                <button class="place__like" aria-label="лайк" type="button"></button>
-              </div>
-            </li>
-            <li class="place">
-              <img class="place__img" src="./images/places/2.jpg"
-                alt="Галактика">
-              <div class="place__info">
-                <h2 class="place__name">Галактика</h2>
-                <button class="place__like" aria-label="лайк" type="button"></button>
-              </div>
-            </li>
-            <li class="place">
-              <img class="place__img" src="./images/places/3.jpg" alt="Млечный
-                путь">
-              <div class="place__info">
-                <h2 class="place__name">Млечный путь</h2>
-                <button class="place__like" aria-label="лайк" type="button"></button>
-              </div>
-            </li>
-            <li class="place">
-              <img class="place__img" src="./images/places/4.jpg" alt="Луна">
-              <div class="place__info">
-                <h2 class="place__name">Луна</h2>
-                <button class="place__like" aria-label="лайк" type="button"></button>
-              </div>
-            </li>
-            <li class="place">
-              <img class="place__img" src="./images/places/5.jpg" alt="Сатурн">
-              <div class="place__info">
-                <h2 class="place__name">Сатурн</h2>
-                <button class="place__like" aria-label="лайк" type="button"></button>
-              </div>
-            </li>
-            <li class="place">
-              <img class="place__img" src="./images/places/6.jpg" alt="Венера">
-              <div class="place__info">
-                <h2 class="place__name">Венера - спутник самой себя</h2>
-                <button class="place__like" aria-label="лайк" type="button"></button>
-              </div>
-            </li>
-
-          </ul>
+          <ul class="places"></ul>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__info">© 2023 Mesto Russia</p>
       </footer>
     </div>
+
+
+    <!-- POPUPS ZONE -->
+
+
+    <!-- PROFILE EDIT  -->
+
     <div class="popup">
       <div class="popup__container">
         <button class="popup__close" aria-label="Закрыть окно" type="button"></button>
@@ -98,6 +58,47 @@
         </form>
       </div>
     </div>
-    <script src="./scripts/index.js"></script>
+
+    <!-- NEW PLACE -->
+    <div class="popup popup_new-place">
+      <div class="popup__container">
+        <button aria-label="Закрыть окно" class="popup__close" type="button" ></button>
+        <h3 class="popup__title">Новое место</h3>
+        <form class="popup__form popup__form_new" name="popup_form" >
+          <input class="popup__input popup__input_type_place" type="text"
+            name="card_name" placeholder="Название" required maxlength="20"
+            minlength="4">
+          <input class="popup__input popup__input_type_src" type="url"
+            name="card_src" placeholder="Ссылка на картинку" required>
+          <input class="popup__submit" type="submit" aria-label="создание карточки" value="Создать">
+        </form>
+      </div>
+    </div>
+
+    <!--  IMAGE ZOOM -->
+    <div class="popup popup_img-card">
+      <div class="popup__img-container">
+        <button aria-label="Закрыть всплывающее окно" type="button" class="popup__close"></button>
+        <img class="popup__zoom-image" src="#" alt="">
+        <h3 class="popup__zoom-title"></h3>
+      </div>
+    </div>
+    <!-- NO MORE POPUPS -->
+
+
+    <!-- TEMPLATE -->
+    <template id="place">
+      <li class="place">
+        <button aria-label="Удалить" class="place__remove" type="button"></button>
+        <img class="place__img" src="#"
+          alt="">
+        <div class="place__info">
+          <h2 class="place__name">Карачаевск</h2>
+          <button class="place__like" aria-label="лайк" type="button"></button>
+        </div>
+      </li>
+    </template>
+    <script defer src="./scripts/places.js"></script>
+    <script defer src="./scripts/index.js"></script>
   </body>
 </html>
