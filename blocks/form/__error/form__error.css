@@ -1,0 +1,7 @@
+.form__error{
+  display: inline-block;
+  font-size: 0.75rem;
+  line-height: normal;
+  color: #FF0000;
+  margin: 0;
+}

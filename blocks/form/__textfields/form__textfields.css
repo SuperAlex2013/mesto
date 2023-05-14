@@ -1,0 +1,6 @@
+.form__textfields {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-bottom: 31px;
+}

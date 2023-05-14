@@ -3,8 +3,8 @@
 const sectionProfile = document.querySelector('.profile')
 const template = document.querySelector('#place').content;
 const cardUlList = document.querySelector('.places');
-
-
+const popups = document.querySelectorAll('.popup');
+const closeButtons = document.querySelectorAll('.popup__close');
 //--//-- MAIN FUNCTIONS  //--//--//--//--//--//--//--//--//--//--//--//--//--//--//--
 
 // const popupToggle = (popupName) => {
@@ -13,18 +13,34 @@ const cardUlList = document.querySelector('.places');
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
 }
 
-const closeButtons = document.querySelectorAll('.popup__close');
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
 
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+
+popups.forEach((overlay) => {
+  overlay.addEventListener('mousedown', (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closePopup(overlay);
+    }
+  });
+});
+
 
 //--//-- PROFILE EDIT POPUP //--//--//--//--//--//--//--//--//--//--//--//--//--//--
 
@@ -37,16 +53,15 @@ const userName = document.querySelector(".profile__name");
 const profileInfo = document.querySelector(".profile__info");
 
 // New data 
-const nameInput = popupEditProfile.querySelector(".popup__input_type_name");
-const infoInput = popupEditProfile.querySelector(".popup__input_type_info");
+const nameInput = popupEditProfile.querySelector(".form__input_type_name");
+const infoInput = popupEditProfile.querySelector(".form__input_type_info");
 
 
 const toggleProfile = () => {
+  nameInput.value = userName.textContent;
+  infoInput.value = profileInfo.textContent;
   if (popupEditProfile.classList.contains("popup_opened")) {
-    nameInput.value = userName.textContent;
-    infoInput.value = profileInfo.textContent;
     closePopup(popupEditProfile);
-
   }
   else {
     openPopup(popupEditProfile)
@@ -131,9 +146,9 @@ initialCards.forEach((data) => { placeCard(data) })
 const formCardEdit = sectionProfile.querySelector('.profile__new-place'),
 
   placeAdd = document.querySelector('.popup_new-place'),
-  placeForm = placeAdd.querySelector('.popup__form_new'),
-  placeInputPlace = placeAdd.querySelector('.popup__input_type_place'),
-  placeInputSrc = placeAdd.querySelector('.popup__input_type_src');
+  placeForm = placeAdd.querySelector('.form_new-place'),
+  placeInputPlace = placeAdd.querySelector('.form__input_type_place'),
+  placeInputSrc = placeAdd.querySelector('.form__input_type_src');
 
 const submitCardForm = (evt) => {
   evt.preventDefault();

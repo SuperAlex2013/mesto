@@ -45,32 +45,48 @@
       <div class="popup__container">
         <button class="popup__close" aria-label="Закрыть окно" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="info">
-          <label>
-            <input class="popup__input popup__input_type_name" name="name"
-              required placeholder="Имя" value="Жак-Ив Кусто">
-          </label>
-          <label>
-            <input class="popup__input popup__input_type_info" name="info"
-              required placeholder="Описание" value="Исследователь океана">
-          </label>
-          <button class="popup__submit" aria-label="сохранить" type="submit">Сохранить</button>
+        <form class="form form_edit-name">
+          <div class="form__textfields">
+            <div class="form__textfield">
+              <input class="form__input form__input_type_name" id="name-input"
+                placeholder="Ваше имя" required minlength="2" maxlength="40">
+              <span class="form__error name-input-error"></span>
+            </div>
+            <div class="form__textfield">
+              <input class="form__input form__input_type_info" id="info-input"
+                placeholder="О себе" required minlength="2" maxlength="200">
+              <span class="form__error info-input-error"></span>
+            </div>
+          </div>
+          <button class="form__btn form__btn_profile" aria-label="сохранить"
+            type="submit">Сохранить</button>
         </form>
       </div>
     </div>
 
     <!-- NEW PLACE -->
-    <div class="popup popup_new-place">
+    <div class="popup popup_new-place ">
       <div class="popup__container">
-        <button aria-label="Закрыть окно" class="popup__close" type="button" ></button>
+        <button aria-label="Закрыть окно" class="popup__close" type="button"></button>
         <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form popup__form_new" name="popup_form" >
-          <input class="popup__input popup__input_type_place" type="text"
-            name="card_name" placeholder="Название" required maxlength="20"
-            minlength="4">
-          <input class="popup__input popup__input_type_src" type="url"
-            name="card_src" placeholder="Ссылка на картинку" required>
-          <input class="popup__submit" type="submit" aria-label="создание карточки" value="Создать">
+        <form class="form form_new-place">
+          <div class="form__textfields">
+            <div class="form__textfield">
+              <input class="form__input form__input_type_place" type="text"
+                id="place-input"
+                placeholder="Название" required minlength="4" maxlength="30">
+              <span class="form__error place-input-error"></span>
+            </div>
+            <div class="form__textfield">
+              <input class="form__input form__input_type_src" type="url"
+                id="src-input"
+                name="card_src" placeholder="Ссылка на картинку" required>
+              <span class="form__error src-input-error"></span>
+            </div>
+          </div>
+          <button class="form__btn form__btn_place" type="submit"
+            aria-label="создание
+            карточки" value="Создать">Сохранить</button>
         </form>
       </div>
     </div>
@@ -78,7 +94,8 @@
     <!--  IMAGE ZOOM -->
     <div class="popup popup_img-card">
       <div class="popup__img-container">
-        <button aria-label="Закрыть всплывающее окно" type="button" class="popup__close"></button>
+        <button aria-label="Закрыть всплывающее окно" type="button"
+          class="popup__close"></button>
         <img class="popup__zoom-image" src="#" alt="">
         <h3 class="popup__zoom-title">*</h3>
       </div>
@@ -98,6 +115,7 @@
         </div>
       </li>
     </template>
+    <script defer src="scripts/validate.js"></script>
     <script defer src="./scripts/places.js"></script>
     <script defer src="./scripts/index.js"></script>
   </body>
