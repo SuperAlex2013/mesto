@@ -2,9 +2,9 @@
 
 const sectionProfile = document.querySelector('.profile')
 const template = document.querySelector('#place').content;
-const cardUlList = document.querySelector('.places');
+const cardsContainer = document.querySelector('.places');
 const popups = document.querySelectorAll('.popup');
-const closeButtons = document.querySelectorAll('.popup__close');
+
 //--//-- MAIN FUNCTIONS  //--//--//--//--//--//--//--//--//--//--//--//--//--//--//--
 
 // const popupToggle = (popupName) => {
@@ -28,16 +28,11 @@ function closeByEscape(evt) {
   }
 }
 
-closeButtons.forEach((button) => {
-  const popup = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popup));
-});
-
 popups.forEach((overlay) => {
   overlay.addEventListener('mousedown', (evt) => {
-    if (evt.target === evt.currentTarget) {
-      closePopup(overlay);
-    }
+    if (evt.target === evt.currentTarget || evt.target.classList.contains('popup__close')) {
+      closePopup(overlay)
+    } 
   });
 });
 
@@ -58,17 +53,18 @@ const infoInput = popupEditProfile.querySelector(".form__input_type_info");
 
 
 const toggleProfile = () => {
-  nameInput.value = userName.textContent;
-  infoInput.value = profileInfo.textContent;
+
   if (popupEditProfile.classList.contains("popup_opened")) {
     closePopup(popupEditProfile);
   }
   else {
+    nameInput.value = userName.textContent;
+    infoInput.value = profileInfo.textContent;
     openPopup(popupEditProfile)
   } 
 }
 
-const submitForm = (evt) => {
+const submitProfileEdit = (evt) => {
   evt.preventDefault();
   userName.textContent = nameInput.value;
   profileInfo.textContent = infoInput.value;
@@ -77,7 +73,7 @@ const submitForm = (evt) => {
 
 editProfile.addEventListener("click", toggleProfile);
 
-popupEditProfile.addEventListener("submit", submitForm);
+popupEditProfile.addEventListener("submit", submitProfileEdit);
 
 
 //-//-- PICTURE ZOOM //--//--//--//--//--//--//--//--//--
@@ -98,44 +94,44 @@ function openZoom(evt) {
 }
 
 
-function makeZoom(node) {
+function addZoomListener(node) {
   node.querySelector('.place__img').addEventListener('click', openZoom);
 }
 
 
 //--//-- ACTIONS //--//--//--//--//--//--//--//--//--
 
-function likeCard(element) {
+function addLikeListener(element) {
   const likeCard = element.querySelector('.place__like');
   likeCard.addEventListener('click', (evt) => {
     evt.target.classList.toggle('place__like_active');
   });
 }
 
-function deleteCard(element) {
-  const DeleteBtn = element.querySelector('.place__remove');
-  DeleteBtn.addEventListener('click', (evt) => {
+function addDeleteListener(element) {
+  const deleteBtn = element.querySelector('.place__remove');
+  deleteBtn.addEventListener('click', (evt) => {
     evt.target.closest('.place').remove()
   });
 }
 
 //--//-- GENERATE PLACE //--//--//--//--//--//--//--//--//--//--
 
-function renderCard(data) {
+function createCard(data) {
   const newElement = template.querySelector('.place').cloneNode(true);
   newElement.querySelector('.place__img').src = data.link;
   newElement.querySelector('.place__img').alt = data.name;
   newElement.querySelector('.place__name').textContent = data.name;
 
-  deleteCard(newElement);
-  likeCard(newElement);
-  makeZoom(newElement);
+  addDeleteListener(newElement);
+  addLikeListener(newElement);
+  addZoomListener(newElement);
 
   return(newElement)
 }
 
 const placeCard = (data) => {
-  cardUlList.prepend(renderCard(data));
+  cardsContainer.prepend(createCard(data));
 }
 
 initialCards.forEach((data) => { placeCard(data) })
@@ -149,9 +145,11 @@ const formCardEdit = sectionProfile.querySelector('.profile__new-place'),
   placeForm = placeAdd.querySelector('.form_new-place'),
   placeInputPlace = placeAdd.querySelector('.form__input_type_place'),
   placeInputSrc = placeAdd.querySelector('.form__input_type_src');
+  placeSumbitBtn = placeAdd.querySelector('.form__btn_place')
 
 const submitCardForm = (evt) => {
   evt.preventDefault();
+  placeSumbitBtn.classList.add('form__btn_disabled')
   placeCard({ name: placeInputPlace.value, link: placeInputSrc.value })
   closePopup(placeAdd)
   evt.target.reset();
