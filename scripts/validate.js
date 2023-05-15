@@ -43,13 +43,22 @@ const invalidInput = (inputList) => {
   return inputList.some(inputElement => !inputElement.validity.valid);
 };
 
+const enableButton = (config, buttonElement) => {
+  buttonElement.classList.remove(config.disabledButtonClass);
+  buttonElement.disabled = false;
+}
+
+const disableButton = (config, buttonElement) => {
+  buttonElement.classList.add(config.disabledButtonClass);
+  buttonElement.disabled = true;
+}
+
+
 const toggleButtonState = (config, inputList, buttonElement) => {
   if (invalidInput(inputList)) {
-    buttonElement.classList.add(config.disabledButtonClass);
-    buttonElement.disabled = true;
+    disableButton(config, buttonElement);
   } else {
-    buttonElement.classList.remove(config.disabledButtonClass);
-    buttonElement.disabled = false;
+    enableButton(config, buttonElement);    
   }
 };
 

@@ -60,6 +60,7 @@ const toggleProfile = () => {
   else {
     nameInput.value = userName.textContent;
     infoInput.value = profileInfo.textContent;
+    disableButton(formConfig, popupEditProfile.querySelector('.form__btn_profile'));
     openPopup(popupEditProfile)
   } 
 }
@@ -130,11 +131,11 @@ function createCard(data) {
   return(newElement)
 }
 
-const placeCard = (data) => {
+const renderCard = (data) => {
   cardsContainer.prepend(createCard(data));
 }
 
-initialCards.forEach((data) => { placeCard(data) })
+initialCards.forEach((data) => { renderCard(data) })
 
 
 //--//-- CARD CREATE POPUP //--//--//--//--//--//--//--//--//--//--
@@ -149,8 +150,8 @@ const formCardEdit = sectionProfile.querySelector('.profile__new-place'),
 
 const submitCardForm = (evt) => {
   evt.preventDefault();
-  placeSumbitBtn.classList.add('form__btn_disabled')
-  placeCard({ name: placeInputPlace.value, link: placeInputSrc.value })
+  disableButton(formConfig, placeSumbitBtn);
+  renderCard({ name: placeInputPlace.value, link: placeInputSrc.value })
   closePopup(placeAdd)
   evt.target.reset();
 }
