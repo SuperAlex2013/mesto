@@ -57,19 +57,25 @@ function handleCardClick(name, link) {
 popupOpenImage.setEventListeners();
 
 //-- ADD CARD
+function createCard(data, template, handleCardClick) {
+  const cards = new Card(data, template, handleCardClick)
+  cards.generateCard()
+  return cards
+}
+
 
 function makeCard(data) {
-  const cards = new Card(data, '#place', handleCardClick)
-  return cardsList.addItem(cards.generateCard())
+  const card = createCard(data, '#place', handleCardClick)
+  return cardsList.addItem(card.generateCard()) 
 }
 
 const handleCardEdit = new PopupWithForm(placeAdd, (data) => {
   makeCard({ name: data.place, link: data.img_src });
   handleCardEdit.close();
-  newPlaceFormValidator.resetValidation();
 });
 
 formCardEdit.addEventListener("click", () => {
+  newPlaceFormValidator.resetValidation();
   handleCardEdit.open();
 });
 

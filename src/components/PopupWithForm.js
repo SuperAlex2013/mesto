@@ -1,8 +1,8 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, callbackSubmit) {
-    super(popupSelector);
+  constructor(popup, callbackSubmit) {
+    super(popup);
     this._callbackSubmit = callbackSubmit;
     this._form = this._popup.querySelector(".form");
     this._inputs = Array.from(this._form.querySelectorAll(".form__input"));
