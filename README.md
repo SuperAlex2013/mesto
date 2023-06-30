@@ -5,6 +5,8 @@ this project is about places that appear somewhere somehow
 ### Обзор
 
 * html
+* webpack
+* oop
 * css
 * js
 * bem nested
