@@ -1,7 +1,7 @@
 .popup__form {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;

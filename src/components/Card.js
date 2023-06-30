@@ -1,9 +1,9 @@
 export default class Card {
-  constructor(data, templateSelector, openZoom) {
+  constructor(data, templateSelector, handleCardClick) {
       this._name = data.name;
       this._link = data.link;
       this._templateSelector = templateSelector;
-      this._openZoom = openZoom;
+      this._handleCardClick = handleCardClick; 
   }
 
   _getTemplate() {
@@ -18,7 +18,6 @@ export default class Card {
   generateCard() {
       this._element = this._getTemplate();
       this._setEventListeners();
-
       this._element.querySelector('.place__img').src = this._link;
       this._element.querySelector('.place__img').alt = this._name;
       this._element.querySelector('.place__name').textContent = this._name;
@@ -49,6 +48,6 @@ export default class Card {
   }
 
   _zoomImage() {
-    this._openZoom(this._link, this._name);
+    this._handleCardClick(this._link, this._name); // здесь вызываем handleCardClick вместо openZoom
   }
 }
