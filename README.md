@@ -13,7 +13,7 @@ this project is about places that appear somewhere somehow
 * api requests
 * connection to server
 
-  ### TO DO
+### TO DO
 * WHY DONT WE USE TRY CATCH???????
  
 **Figma file**
