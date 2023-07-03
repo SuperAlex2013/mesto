@@ -10,6 +10,11 @@ this project is about places that appear somewhere somehow
 * css
 * js
 * bem nested
+* api requests
+* connection to server
+
+### TO DO
+* WHY DONT WE USE TRY CATCH???????
  
 **Figma file**
 
