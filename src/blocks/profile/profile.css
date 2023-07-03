@@ -1,6 +1,7 @@
 .profile {
   margin: 0 auto 33px auto;
   padding: 0;
+  position: relative;
   max-width: 880px;
   display: flex;
   align-items: center;

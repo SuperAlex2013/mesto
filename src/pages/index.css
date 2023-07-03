@@ -12,14 +12,17 @@
 @import url(../blocks/profile/__image/profile__image.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__new-place/profile__new-place.css);
+@import url(../blocks/profile/__image-btn/profile__image-btn.css);
 @import url(../blocks/places/places.css);
 @import url(../blocks/place/place.css);
 @import url(../blocks/place/__img/place__img.css);
 @import url(../blocks/place/__info/place__info.css);
 @import url(../blocks/place/__like/place__like.css);
 @import url(../blocks/place/__name/place__name.css);
+@import url(../blocks/place/__likes/place__likes.css);
 @import url(../blocks/place/__remove/plcae__remove.css);
 @import url(../blocks/place/__like/_active/place__like_active.css);
+@import url(../blocks/place/__remove/_active/place__remove_active.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__info/footer__info.css);
 @import url(../blocks/popup/popup.css);
@@ -34,7 +37,7 @@
 @import url(../blocks/popup/__zoom-title/popup__zoom-title.css);
 @import url(../blocks/popup/_img-card/popup_img-card.css);
 @import url(../blocks/popup/__zoom-image/popup__zoom-image.css);
-
+@import url(../blocks/place/__like-number/place__like-number.css);
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__input/_error/form__input_error.css);

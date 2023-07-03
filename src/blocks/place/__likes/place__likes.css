@@ -1,0 +1,6 @@
+.place__likes {
+  display: flex;
+  flex-flow: column wrap;
+  width: 30px;
+  align-content: center;
+}

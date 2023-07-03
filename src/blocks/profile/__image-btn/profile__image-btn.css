@@ -1,0 +1,29 @@
+.profile__image-btn {
+  outline: none;
+  border: none;
+  position: absolute;
+  border-radius: 50%;
+  background: transparent;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.profile__image-btn::after {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+}
+
+.profile__image-btn:hover::after {
+  opacity: 1; 
+  outline: 2px solid rgba(0, 0, 0, 0.8);
+  background: center 50% / 26px no-repeat url(../../../images/icon/edit.svg) rgba(0, 0, 0, 0.8);
+}

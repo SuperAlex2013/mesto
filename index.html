@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
+    <link rel="stylesheet" type="text/css" href="./pages/index.css">
   </head>
   <body class="page">
     <div class="page__container">
       <header class="header">
-        <img class="header__logo" src="<%=require('./images/logo.svg')%>"
-          alt="логотип место">
+        <img class="header__logo" src="./images/logo.svg" alt="логотип место">
       </header>
       <main>
         <section class="profile">
-          <button class="profile__image-btn" type="button"></button>
-          <img class="profile__image" src="<%=require('./images/photo.jpg')%>"
-            alt="аватарка">
+          <img class="profile__image" src="./images/photo.jpg" alt="аватарка">
           <div class="profile__data">
             <div class="profile__name-container">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -37,39 +35,21 @@
       </footer>
     </div>
 
+
     <!-- POPUPS ZONE -->
 
-    <!-- EDIT PROFILE IMG -->
-    <div class="popup popup_upd-image">
-      <div class="popup__container">
-        <button type="button" class="popup__close" aria-label="Закрыть Popup"></button>
-        <h3 class="popup__title">Обновить аватар</h3>
-        <form class="form" name="popup__form-upd-image" novalidate>
-          <div class="form__textfields">
-            <div class="form__textfield">
-              <input id="upd-input" class="form__input" type="url" name="updInput"
-              placeholder="Ссылка на картинку" required>
-            <span class="form__error upd-input-error"></span>
-            </div>
-          </div>
-          <button class="form__btn" type="submit">Сохранить</button>
-        </form>
-      </div>
-    </div>
-    <!-- REMOVE PlACE-->
-
+    <!-- REMOVE CARD -->
     <div class="popup popup_rem-card">
       <div class="popup__container">
         <button type="button" class="popup__close" aria-label="Закрыть Popup"></button>
         <h3 class="popup__title">Вы уверены?</h3>
-
-        <form class="form " name="popup__form-rem-card" novalidate>
-
-          <button class="form__btn form__btn_remove-place" type="submit">Да</button>
+  
+        <form class="form" name="popup__form-rem-card" novalidate>
+          <button class="form__btn form__del-btn" type="submit">Да</button>
         </form>
       </div>
     </div>
-
+  
     <!-- PROFILE EDIT  -->
 
     <div class="popup popup_profile-edit">
@@ -79,14 +59,12 @@
         <form class="form form_edit-name" novalidate>
           <div class="form__textfields">
             <div class="form__textfield">
-              <input class="form__input form__input_type_name" name="name"
-                id="name-input"
+              <input class="form__input form__input_type_name" id="name-input"
                 placeholder="Ваше имя" required minlength="2" maxlength="40">
               <span class="form__error name-input-error"></span>
             </div>
             <div class="form__textfield">
-              <input class="form__input form__input_type_info" name='info'
-                id="info-input"
+              <input class="form__input form__input_type_info" id="info-input"
                 placeholder="О себе" required minlength="2" maxlength="200">
               <span class="form__error info-input-error"></span>
             </div>
@@ -105,16 +83,15 @@
         <form class="form form_new-place novalidate">
           <div class="form__textfields">
             <div class="form__textfield">
-              <input class="form__input form__input_type_place" name="place"
-                type="text"
+              <input class="form__input form__input_type_place" type="text"
                 id="place-input"
                 placeholder="Название" required minlength="4" maxlength="30">
               <span class="form__error place-input-error"></span>
             </div>
             <div class="form__textfield">
-              <input class="form__input form__input_type_src" name='img_src'
-                type="url" id="src-input"
-                placeholder="Ссылка на картинку" required>
+              <input class="form__input form__input_type_src" type="url"
+                id="src-input"
+                name="card_src" placeholder="Ссылка на картинку" required>
               <span class="form__error src-input-error"></span>
             </div>
           </div>
@@ -130,25 +107,28 @@
       <div class="popup__img-container">
         <button aria-label="Закрыть всплывающее окно" type="button"
           class="popup__close"></button>
-        <img class="popup__zoom-image" src="#" alt>
+        <img class="popup__zoom-image" src="#" alt="">
         <h3 class="popup__zoom-title">*</h3>
       </div>
     </div>
     <!-- NO MORE POPUPS -->
+
 
     <!-- TEMPLATE -->
     <template id="place">
       <li class="place">
         <button aria-label="Удалить" class="place__remove" type="button"></button>
         <img class="place__img" src="#"
-          alt>
+          alt="">
         <div class="place__info">
           <h2 class="place__name">Карачаевск</h2>
-          <div class="place__likes">
-            <button class="place__like" aria-label="лайк" type="button"></button>
-            <p class="place__like-number">0</p></div>
+          <button class="place__like" aria-label="лайк" type="button"></button>
         </div>
       </li>
     </template>
+    <script defer src="./scripts/places.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+
+
   </body>
 </html>
