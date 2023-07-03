@@ -23,13 +23,7 @@ const sectionProfile = document.querySelector('.profile');
 const placesContainer = document.querySelector('.places');
 
 const formCardEdit = sectionProfile.querySelector('.profile__new-place'),
-  placeAdd = document.querySelector('.popup_new-place'),
-  placeForm = placeAdd.querySelector('.form_new-place'),
-  placeInputPlace = placeAdd.querySelector('.form__input_type_place'),
-  placeInputSrc = placeAdd.querySelector('.form__input_type_src'),
-  placeSubmitBtn = placeAdd.querySelector('.form__btn_place');
-
-
+  placeAdd = document.querySelector('.popup_new-place')
 //-- INIT API
 
 
@@ -56,6 +50,7 @@ const popupUpdImg = document.querySelector('.popup_upd-image'),
         popupUpdateAvatar.close();
       })
       .catch((err) => console.error(err))
+      .finally(() => popupUpdImg.setInitialText())
   });
 popupUpdateAvatar.setEventListeners();
 
@@ -75,7 +70,7 @@ const popupProfileEdit = new PopupWithForm(popupEditProfile, (data) => {
     })
     .catch((err) => console.error(err))
     .finally(() => {
-      popupProfileEdit.close();
+      popupProfileEdit.setInitialText()
     });
 });
 
@@ -112,7 +107,7 @@ popupConfirm.setEventListeners();
 //-- NEW CARD 
 
 
-function makeCard(data) {
+function createCard(data) {
 
   const handleCardDelete = () => {
     const sendCard = () => {
@@ -121,11 +116,16 @@ function makeCard(data) {
           cards.deleteCard();
           popupConfirm.close();
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err))
+        .finally(() => {
+          popupConfirm.setInitialText();
+        });
     };
-    popupConfirm.open();
+
     popupConfirm.setCallbackConfirm(sendCard);
+    popupConfirm.open();
   };
+
 
   const handleAddLike = () => {
     api.addLike(cards.cardId)
@@ -150,11 +150,14 @@ function makeCard(data) {
       handleDeleteLike,
     }
   );
-
-  const card = cards.generateCard();
-  return cardsList.addItem(card);
+  return cards.generateCard();
 }
 
+
+function makeCard(data) {
+  const card = createCard(data);
+  cardsList.addItem(card);
+}
 let userId;
 Promise.all([
   api.getDataUser(),
@@ -177,10 +180,10 @@ const handleCardEdit = new PopupWithForm(placeAdd, (data) => {
       makeCard(result);
       handleCardEdit.close();
     })
-    .catch((err) => console.log(err))
+    .catch((err) => console.error(err))
     .finally(() => {
-
-      handleCardEdit.close();
+      handleCardEdit.setInitialText()
+      
     });
 });
 
@@ -205,7 +208,7 @@ const newPlaceFormValidator = new FormValidator(formConfig, document.querySelect
 editProfileFormValidator.enableValidation();
 editProfileFormValidator.disableSubmitBtn()
 newPlaceFormValidator.enableValidation();
-const PopupAvatarForm = new FormValidator(formConfig, popupUpdImg);
-PopupAvatarForm.enableValidation();
+const popupAvatarForm = new FormValidator(formConfig, popupUpdImg);
+popupAvatarForm.enableValidation();
 
 
